@@ -256,24 +256,25 @@ for(var i=0;i<w.length;i++){var p=document.createElement('span');p.textContent=w
 document.documentElement.style.overflow='hidden';
 setTimeout(function(){s.classList.add('out');document.documentElement.style.overflow='';setTimeout(function(){s.style.display='none'},800)},3300)})();
 </script>
-<div id="ib" style="display:none;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;max-width:520px;margin:auto;background:#17181b;border:1px solid #c9a24a;padding:12px 14px;align-items:center;gap:12px;box-shadow:0 10px 40px #000c;border-radius:6px">
-<img src="icon-192.png" alt="" style="width:46px;height:46px;border-radius:10px;flex:none">
-<div style="flex:1;font-size:13px;line-height:1.4;color:#f2efe8"><b style="color:#e6c872;font-size:15px">CNC Design App</b><br><span id="it">Apne phone mein app install karein</span></div>
-<button id="ibb" class="btn" style="padding:10px 16px;font-size:13px" onclick="inst()">Install</button>
-<span onclick="hideB(1)" style="cursor:pointer;font-size:20px;color:#a49f94;padding:0 4px">✕</span></div>
+<div id="ipm" style="display:none;position:fixed;inset:0;z-index:9000;background:#000c;align-items:center;justify-content:center;padding:18px">
+<div style="background:#17181b;border:1px solid #c9a24a;max-width:380px;width:100%;padding:26px;text-align:center;border-radius:8px;box-shadow:0 20px 60px #000;animation:up .4s">
+<img src="icon-192.png" alt="" style="width:84px;height:84px;border-radius:18px;margin-bottom:10px">
+<h3 style="margin:0 0 8px;color:#e6c872;font-size:22px">CNC Design App</h3>
+<p id="ipt" style="color:#cfcabd;line-height:1.6;margin:0 0 18px;font-size:15px">Kya ap CNC Design app apne phone mein install karna chahte hain?</p>
+<div style="display:flex;flex-direction:column;gap:10px"><button class="btn" id="ipy" onclick="inst()">📲 Install</button><button class="btn o" id="ipn" onclick="hideM()">Nahi, Website Kholein</button></div></div></div>
 <script>
 var dp=null,ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
 function sa(){return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true}
 function g(i){return document.getElementById(i)}
-function showB(){if(sa())return;try{if(sessionStorage.getItem('ibx'))return}catch(e){}g('ib').style.display='flex';g('ib2').style.display='inline-block'}
-function hideB(x){g('ib').style.display='none';if(x){try{sessionStorage.setItem('ibx','1')}catch(e){}}}
+function showM(){if(sa())return;try{if(sessionStorage.getItem('ipx'))return}catch(e){}g('ipm').style.display='flex'}
+function hideM(){g('ipm').style.display='none';try{sessionStorage.setItem('ipx','1')}catch(e){}}
 function inst(){
- if(dp){dp.prompt();dp.userChoice.then(function(){dp=null;hideB();g('ib2').style.display='none'});return}
- g('ib').style.display='flex';g('ibb').style.display='none';
- g('it').innerHTML=ios?'Safari mein neeche <b>Share ⬆</b> dabayein, phir <b>Add to Home Screen</b> chunein.':'Chrome ke menu (teen dots) mein <b>Install app</b> ya <b>Add to Home screen</b> chunein.';
+ if(dp){dp.prompt();dp.userChoice.then(function(){dp=null;hideM();g('ib2').style.display='none'});return}
+ g('ipm').style.display='flex';g('ipy').style.display='none';g('ipn').textContent='Theek hai';
+ g('ipt').innerHTML=ios?'Safari mein neeche <b>Share ⬆</b> dabayein, phir <b>Add to Home Screen</b> chunein.':'Chrome ke menu (teen dots) mein <b>Install app</b> ya <b>Add to Home screen</b> chunein.';
 }
-window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;showB()});
-window.addEventListener('appinstalled',function(){hideB();g('ib2').style.display='none'});
-if(ios){setTimeout(function(){showB();g('ibb').textContent='Kaise?'},2500)}
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;g('ib2').style.display='inline-block'});
+window.addEventListener('appinstalled',function(){hideM();g('ib2').style.display='none'});
+if(!sa()){g('ib2').style.display='inline-block';setTimeout(showM,Math.max(0,3700-performance.now()))}
 </script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script></body></html>
