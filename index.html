@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>cncdesignes – CNC Design | 2D &amp; 3D Wood Carving</title><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="theme-color" content="#0f1012"><script src="config.js"></script>
+<style>
+:root{--bg:#0f1012;--s:#17181b;--s2:#1f2024;--tx:#f2efe8;--mu:#a49f94;--g:#c9a24a;--g2:#e6c872;--ln:#2d2e33;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root{--bg:#0f1012}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Segoe UI',Tahoma,Arial,sans-serif;overflow-x:hidden}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;justify-content:space-between;align-items:center;padding:12px 6%;background:#0f1012ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+body:before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:#0f1012;z-index:11}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--tx)}
+.logo svg{width:42px;height:42px}
+.logo b{font-size:20px;letter-spacing:2px;display:block;line-height:1}.logo small{font-size:10px;letter-spacing:4px;color:var(--g)}
+nav{display:flex;gap:22px}nav a{color:var(--mu);text-decoration:none;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:.3s}nav a:hover{color:var(--g)}
+@media(max-width:760px){nav{display:none}}
+.btn{display:inline-block;padding:13px 28px;border:1px solid var(--g);background:var(--g);color:#16130b;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:.3s;border-radius:2px}
+.btn:hover{background:transparent;color:var(--g)}.btn.o{background:transparent;color:var(--g)}.btn.o:hover{background:var(--g);color:#16130b}
+.sec{padding:80px 6%;max-width:1300px;margin:auto}
+.ey{color:var(--g);letter-spacing:4px;font-size:12px;text-transform:uppercase;font-weight:700}
+h2{font-size:clamp(28px,4.5vw,44px);margin:8px 0 12px;font-weight:700}
+.ln{width:60px;height:3px;background:var(--g);margin-bottom:30px}
+.hero{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;padding:60px 6% 0;max-width:1300px;margin:auto;min-height:80vh}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:40px}}
+.hero h1{font-size:clamp(34px,5.5vw,62px);line-height:1.1;margin:10px 0 18px}
+.hero h1 span{color:var(--g)}
+.hero p{color:var(--mu);font-size:17px;line-height:1.7;max-width:560px}
+.hero .bt{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.ph{position:relative;align-self:end;text-align:center}
+.ph:before{content:"";position:absolute;left:8%;right:8%;bottom:0;top:12%;background:linear-gradient(160deg,#c9a24a,#6e5420);border-radius:200px 200px 0 0;opacity:.9}
+.ph img{position:relative;width:min(420px,88%);display:block;margin:0 auto;filter:drop-shadow(0 20px 30px #000a);animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-8px)}}
+.tag{position:absolute;bottom:30px;left:0;background:#0f1012e6;border:1px solid var(--g);padding:10px 16px;font-size:13px;z-index:2;text-align:left}
+.tag b{color:var(--g)}
+.poster{position:relative;margin:0 6%;border:1px solid var(--g);padding:50px 6%;text-align:center;overflow:hidden;max-width:1188px;margin-left:auto;margin-right:auto;background:var(--s)}
+.poster .bgc{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);opacity:.22}
+.poster .bgc div,.cb div{background-size:cover;background-position:center}
+.poster .in{position:relative}
+.poster h3{font-size:clamp(22px,3.6vw,38px);margin:0 0 20px;line-height:1.4}
+.poster h3 span{color:var(--g)}
+.cats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.cats span{border:1px solid var(--g);padding:9px 18px;font-size:14px;background:#0f1012cc;letter-spacing:1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:24px}
+.card{background:var(--s);border:1px solid var(--ln);transition:.35s;animation:up .7s both}
+.card:hover{border-color:var(--g);transform:translateY(-6px);box-shadow:0 18px 40px #000a}
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+.card .iw{overflow:hidden;height:290px;background:#222}
+.card img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:.6s}
+.card:hover img{transform:scale(1.07)}
+.card .in{padding:16px;display:flex;flex-direction:column;gap:12px}
+.nm{font-size:15px;color:var(--g2);word-break:break-all;font-family:Consolas,monospace}
+.pr{width:100%;text-align:center}
+.course{position:relative;overflow:hidden;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);background:#0a0a0b}
+.cb{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);opacity:.28;filter:grayscale(.3)}
+.course:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0a0a0bf2 20%,#0a0a0b99)}
+.course .sec{position:relative;z-index:2}
+.off{display:inline-block;background:var(--g);color:#16130b;font-weight:800;padding:8px 18px;letter-spacing:2px;margin-bottom:14px;animation:pl 2s infinite}
+@keyframes pl{50%{box-shadow:0 0 0 8px #c9a24a33}}
+.sw{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.sw span{border:1px solid var(--g);padding:10px 20px;font-weight:600;background:#0f1012cc}
+.course p{color:#d6d1c5;font-size:17px;line-height:1.8;max-width:620px}
+.ab{display:grid;grid-template-columns:320px 1fr;gap:50px;align-items:center}
+@media(max-width:800px){.ab{grid-template-columns:1fr}}
+.abp{background:linear-gradient(160deg,#c9a24a,#6e5420);padding-top:20px;text-align:center}
+.abp img{width:100%;display:block}
+.ab p{color:#cfcabd;line-height:1.85;font-size:16px}
+.st{display:flex;gap:30px;flex-wrap:wrap;margin-top:22px}.st div b{display:block;font-size:30px;color:var(--g)}.st div{font-size:13px;color:var(--mu)}
+.pi{display:flex;gap:18px;flex-wrap:wrap}
+.pb{display:flex;align-items:center;gap:14px;background:var(--s);border:1px solid var(--ln);padding:16px 26px;min-width:260px}
+.ic{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-weight:900;font-size:13px;color:#fff}
+.jc{background:#e4002b}.ep{background:#3bb54a}
+.pb small{color:var(--mu);display:block}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:800px){.cg{grid-template-columns:1fr}}
+.ct{display:flex;flex-direction:column;gap:14px}
+.ci{display:flex;gap:16px;align-items:center;background:var(--s);border:1px solid var(--ln);padding:16px 20px;text-decoration:none;color:var(--tx);transition:.3s}
+.ci:hover{border-color:var(--g)}
+.ci svg{width:26px;height:26px;fill:var(--g);flex:none}.ci small{display:block;color:var(--mu);font-size:12px}
+.fm{display:flex;flex-direction:column;gap:14px;background:var(--s);border:1px solid var(--ln);padding:26px}
+.fm input,.fm textarea,.fm select{background:var(--bg);border:1px solid var(--ln);color:var(--tx);padding:13px;font:inherit;border-radius:2px;width:100%}
+.fm input:focus,.fm textarea:focus,.fm select:focus{outline:none;border-color:var(--g)}
+footer{border-top:1px solid var(--ln);padding:30px 6%;text-align:center;color:var(--mu);font-size:13px}
+.m{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;padding:16px;z-index:30}.m.on{display:flex}
+.mb{background:var(--s);border:1px solid var(--g);padding:26px;max-width:420px;width:100%;text-align:center;max-height:92vh;overflow:auto;animation:up .35s}
+.mb img{width:130px;border:1px solid var(--ln)}
+.x{float:right;cursor:pointer;font-size:22px;color:var(--mu)}
+.num{font-size:28px;font-weight:800;letter-spacing:2px;color:var(--g);margin:6px 0}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.sm{font-size:13px;color:var(--mu);margin-top:12px}
+.zoom img{max-width:95vw;max-height:90vh}
+.wx{height:46px;width:46px;border-radius:50%;object-fit:cover;border:2px solid var(--g);animation:pl 3s infinite}
+.logo svg .gr{transform-origin:50px 50px;animation:sp 14s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px;justify-items:stretch}.cgrid>*{min-width:0}
+.cc{display:flex;align-items:stretch;background:var(--s);border:1px solid var(--ln);text-decoration:none;color:var(--tx);position:relative;overflow:hidden;transition:.4s;opacity:0;transform:translateY(40px)}
+.cc.v{opacity:1;transform:none;transition:opacity .8s,transform .8s,border-color .3s,box-shadow .3s}
+.cc:hover{border-color:var(--g);box-shadow:0 18px 40px #000a;transform:translateY(-6px)}
+.cc .im{width:46%;min-height:230px;overflow:hidden;flex:none}
+.cc .im img{width:100%;height:100%;object-fit:cover;display:block;transition:.7s}
+.cc:hover .im img{transform:scale(1.12) rotate(1.5deg)}
+.cc .tx{padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.cc .tx b{font-size:clamp(24px,3vw,32px);line-height:1.15;color:var(--g2)}
+.cc .tx small{color:var(--mu);font-size:13px;line-height:1.5}
+.cc .tx i{font-style:normal;color:var(--g);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:.3s}
+.cc:hover .tx i{letter-spacing:3px}
+.cc:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#ffffff26,transparent);transform:skewX(-20deg);animation:sh 5s infinite}
+@keyframes sh{60%,100%{left:130%}}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s}.rv.v{opacity:1;transform:none}
+.hero h1,.hero p,.hero .bt,.hero .ey{animation:up .9s both}.hero h1{animation-delay:.15s}.hero p{animation-delay:.3s}.hero .bt{animation-delay:.45s}
+.cats a{color:var(--tx);text-decoration:none;border:1px solid var(--g);padding:9px 18px;font-size:14px;background:#0f1012cc;letter-spacing:1px;transition:.3s}.cats a:hover{background:var(--g);color:#16130b;transform:translateY(-3px)}
+.poster{animation:pl 4s infinite}
+@media(max-width:560px){.cc{flex-direction:column;width:100%;margin:0 auto}.cc .im{width:100%;height:340px;min-height:0}.cc .tx{text-align:center;align-items:center}.sec{padding-left:5%;padding-right:5%}}.mb .pb{min-width:0;padding:10px 16px}.ep2{background:#3bb54a;border-color:#3bb54a;color:#fff}
+.spl{position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at 50% 42%,#2a2113 0,#0c0d0f 65%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;transition:opacity .7s,visibility .7s}
+.spl.out{opacity:0;visibility:hidden}
+.rg{position:relative;width:210px;height:210px;display:grid;place-items:center}
+.rg:before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(#ff3b3b,#ff9f1c,#ffe14d,#3ddc84,#19d3ff,#4d6bff,#c84dff,#ff3b3b);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));animation:rs 2.2s linear infinite}
+.rg:after{content:"";position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(#ff3b3b,#ff9f1c,#ffe14d,#3ddc84,#19d3ff,#4d6bff,#c84dff,#ff3b3b);filter:blur(22px);opacity:.45;animation:rs 2.2s linear infinite reverse}
+@keyframes rs{to{transform:rotate(360deg)}}
+.rg .lg{position:relative;z-index:2;width:150px;height:150px;border-radius:50%;background:#0f1012;display:grid;place-items:center;animation:lp 1.2s cubic-bezier(.2,1.4,.4,1) both,fl2 2.4s 1.2s ease-in-out infinite}
+.rg .lg svg{width:118px;height:118px;filter:drop-shadow(0 0 10px #c9a24a88)}
+@keyframes lp{from{transform:scale(0) rotate(-180deg);opacity:0}}
+@keyframes fl2{50%{transform:scale(1.07)}}
+.wl{display:flex;gap:2px;font-size:clamp(34px,9vw,48px);font-weight:800;letter-spacing:3px}
+.wl span{background:linear-gradient(90deg,#e6c872,#fff,#e6c872);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(24px);animation:wi .6s forwards,sh2 2s linear infinite}
+@keyframes wi{to{opacity:1;transform:none}}@keyframes sh2{to{background-position:200%}}
+.sb{width:190px;height:4px;background:#2a2b30;border-radius:4px;overflow:hidden}
+.sb i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff3b3b,#ff9f1c,#3ddc84,#19d3ff,#c84dff);animation:ld 3s .2s linear forwards}
+@keyframes ld{to{width:100%}}
+.spl small{color:#a49f94;letter-spacing:5px;font-size:12px;margin-top:-18px}
+.mt{font-size:12px;color:var(--mu);margin-top:-6px;letter-spacing:1px}.tb{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}.tb input,.tb select{background:var(--s);border:1px solid var(--ln);color:var(--tx);padding:12px 14px;font:inherit;border-radius:2px}.tb input{flex:1;min-width:200px}.tb input:focus,.tb select:focus{outline:none;border-color:var(--g)}
+.r2{display:flex;gap:8px}.r2 .btn{flex:1;padding:11px 6px;font-size:12px}.ct2{background:transparent;border:1px solid var(--g);color:var(--g);padding:8px 12px;font-weight:700;cursor:pointer;border-radius:2px;margin-right:10px}
+.ci2{display:flex;gap:12px;align-items:center;text-align:left;border-bottom:1px solid var(--ln);padding:10px 0}.ci2 img{width:52px;height:52px;object-fit:cover}.ci2 div{flex:1;font-size:13px;word-break:break-all}.ci2 span{cursor:pointer;color:var(--mu);font-size:18px}
+.dm img{width:100%;max-height:50vh;object-fit:contain;background:#222}.dm p{color:var(--mu);font-size:14px;line-height:1.7;text-align:left;margin:6px 0}
+details{background:var(--s);border:1px solid var(--ln);padding:14px 18px;margin-bottom:10px}summary{cursor:pointer;font-weight:700;color:var(--g2)}details p{color:#cfcabd;line-height:1.7;margin:10px 0 0}
+.fl a{color:var(--mu);cursor:pointer;margin:0 10px;font-size:13px;text-decoration:underline}.fl{margin-bottom:12px}
+.cg{grid-template-columns:1fr!important;max-width:560px}</style></head><body>
+<div class="spl" id="spl"><div class="rg"><div class="lg" id="slg"></div></div><div class="wl" id="swl"></div><div class="sb"><i></i></div><small>CNC DESIGN · @CNCDESIGNES</small></div>
+<header>
+<a class="logo" href="#top"><svg viewBox="0 0 100 100"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d98b"/><stop offset="1" stop-color="#b8892b"/></linearGradient></defs><polygon points="50,4 92,27 92,73 50,96 8,73 8,27" fill="#17181b" stroke="url(#gg)" stroke-width="4"/><circle cx="50" cy="50" r="33" fill="none" stroke="url(#gg)" stroke-width="2" stroke-dasharray="4 3" class="gr"/><path d="M50 14v10M50 76v10M14 50h10M76 50h10" stroke="#c9a24a" stroke-width="3"/><text x="50" y="55" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="23" fill="url(#gg)">CNC</text><path d="M30 62h40M36 68h28" stroke="#f2efe8" stroke-width="2"/></svg><div><b>CNC DESIGN</b><small>@CNCDESIGNES</small></div></a>
+<nav><a href="#top">Home</a><a href="#cats">Categories</a><a href="#designs">Designs</a><a href="#course">Course</a><a href="#faq">FAQ</a><a href="#about">About</a><a href="#pay">Payment</a><a href="#contact">Contact</a><a href="#custom">Custom</a><a href="download.html">Mera Download</a></nav>
+<button class="ct2" onclick="oc()">🛒 <span id="cn">0</span></button>
+<img class="wx" id="wx" alt="Woodx CNC">
+</header>
+
+<section class="hero" id="top">
+<div><div class="ey">Professional CNC Designer</div>
+<h1>2D &amp; 3D <span>Wood Carving</span> Designs Ready for Your CNC</h1>
+<p>Premium relief models, jali, panels and decorative carvings. Aspire aur ArtCAM ke liye tayar files, bilkul apke order ke mutabiq.</p>
+<div class="bt"><a class="btn" href="#designs">Designs Dekhain</a><a class="btn o" href="#contact">Rabta Karain</a><a class="btn" id="ib2" href="#" style="display:none" onclick="inst();return false">📲 App Install Karein</a></div></div>
+<div class="ph"><img id="me" alt="CNC Designer"><div class="tag"><b>Awais</b><br>CNC Designer</div></div>
+</section>
+
+<section class="sec" style="padding-top:60px;padding-bottom:30px">
+<div class="poster"><div class="bgc" id="pbg"></div><div class="in">
+<div class="ey">CNC Design</div>
+<h3>Available <span>All 2D Jali, Beds, Sofas, Panel Doors</span><br>&amp; Every Design Available in 2D and 3D Form — On Your Order</h3>
+<div class="cats"><a href="#cats">2D Jali</a><a href="#cats">Beds</a><a href="#cats">Sofas</a><a href="#cats">Panel Doors</a><a href="#cats">3D Relief</a><a href="#cats">Wall Panels</a></div>
+</div></div></section>
+
+<section class="sec" id="cats" style="padding-bottom:20px">
+<div class="ey rv">Categories</div><h2 class="rv">Design Categories</h2><div class="ln"></div>
+<p class="rv" style="color:var(--mu);margin:-10px 0 26px">Kisi bhi category par click karain, Pinterest par us se related designs khul jayengi taake ap apni pasand ka design select kar sakain.</p>
+<div class="cgrid" id="cg"></div></section>
+
+<section class="sec" id="designs">
+<div class="ey">Collection</div><h2>3D Wood Carving Designs</h2><div class="ln"></div>
+<div class="tb"><input id="q" placeholder="🔍 Design dhoondhain..." oninput="rd()"><select id="cf" onchange="rd()"><option value="">All Categories</option><option>Islamic</option><option>Animals</option><option>Portraits</option><option>Floral</option><option>Decor</option></select><select id="sf" onchange="rd()"><option value="">Sort: Default</option><option value="a">Price: Low to High</option><option value="d">Price: High to Low</option></select></div>
+<div class="grid" id="grid"></div><p id="em" style="display:none;text-align:center;color:var(--mu)">Koi design nahi mila.</p></section>
+
+<section class="course" id="course"><div class="cb" id="cbg"></div>
+<div class="sec">
+<span class="off">30% OFF</span>
+<div class="ey">Online Course</div><h2>2D &amp; 3D CNC Design Course</h2><div class="ln"></div>
+<div class="sw"><span>Aspire 9.5</span><span>Aspire 10.5</span><span>ArtCAM 2018</span></div>
+<p>Online 2D aur 3D course available hai jis mein Aspire 9.5, 10.5 aur ArtCAM 2018 sikhaya jata hai. Course ke saath 2D aur 3D wood carving designs bhi diye jate hain. Abhi 30% off ke liye rabta karain.</p>
+<div style="margin-top:22px"><a class="btn" id="cw" href="#" target="_blank" rel="noopener">Course ke liye Rabta Karain</a></div>
+</div></section>
+
+<section class="sec" id="about">
+<div class="ey">About Me</div><h2>Awais — CNC Designer</h2><div class="ln"></div>
+<div class="ab"><div class="abp"><img id="me2" alt="Awais CNC Designer"></div>
+<div><p>Mera naam Awais hai aur ma ek professional CNC Designer hon. Ma 2D aur 3D wood carving designs banata hon, jin mein jali, beds, sofas, panel doors aur 3D relief models shamil hain. Meri har design Aspire aur ArtCAM par tayar hoti hai aur CNC machine par asani se chalti hai.</p>
+<p>Ma customer ke order ke mutabiq custom design bhi banata hon aur online course ke zariye Aspire 9.5, 10.5 aur ArtCAM 2018 bhi sikhata hon. Mera maqsad hai ke apko saaf, professional aur machine-ready design milay.</p>
+<div class="st"><div><b>3D</b>Relief Models</div><div><b>2D</b>Jali &amp; Panels</div><div><b>Online</b>Aspire &amp; ArtCAM Course</div></div></div></div></section>
+
+<section class="sec" id="pay">
+<div class="ey">Payment</div><h2>Payment Methods</h2><div class="ln"></div>
+<div class="pi"><div class="pb"><div class="ic jc">JC</div><div>JazzCash<small>03284452636</small></div></div>
+<div class="pb"><div class="ic ep">EP</div><div>EasyPaisa<small>03284452636</small></div></div></div></section>
+
+
+<section class="sec" id="faq"><div class="ey">FAQ</div><h2>Aksar Pooche Janay Wale Sawal</h2><div class="ln"></div>
+<details><summary>File kab aur kaise milti hai?</summary><p>Payment ke baad screenshot WhatsApp par bhejain. Payment check hone par STL file WhatsApp par bhej di jati hai.</p></details>
+<details><summary>Ye files kis software mein chalti hain?</summary><p>STL file Aspire, VCarve, ArtCAM aur dusre STL support karne wale CNC software mein khul jati hai.</p></details>
+<details><summary>Payment kaise karein?</summary><p>JazzCash ya EasyPaisa se 03284452636 par. Price par click karke Yes dabayein, number khud copy ho jata hai.</p></details>
+<details><summary>Kya apni pasand ka design ban sakta hai?</summary><p>Ji, Custom Design Order ka form bhar kar WhatsApp par bhejain. Design dekh kar price bataya jata hai.</p></details>
+<details><summary>Kya course available hai?</summary><p>Ji, Aspire 9.5, 10.5 aur ArtCAM 2018 ka online course available hai. Rabta karein: 03284452636.</p></details></section>
+<section class="sec" id="contact">
+<div class="ey">Contact</div><h2>Rabta Karain</h2><div class="ln"></div>
+<div class="cg"><div class="ct">
+<a class="ci" href="tel:03284452636"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></svg><div><small>Phone</small>03284452636</div></a>
+<a class="ci" id="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.25.7-1.4 1.3-1.95 1.35-.5.05-1.1.07-1.8-.12a14 14 0 0 1-6.3-5.1c-.5-.7-1.2-1.9-1.2-3s.6-1.6.8-1.85.5-.3.65-.3h.45c.15 0 .35 0 .5.45s.65 1.6.7 1.7.1.25 0 .4-.15.25-.3.4-.3.35-.4.5-.3.3-.15.6a8 8 0 0 0 3.8 3.1c.3.15.45.1.6-.05s.7-.8.9-1.1.4-.25.65-.15 1.6.75 1.9.9.45.2.5.3a2 2 0 0 1-.1 1z"/></svg><div><small>WhatsApp</small>03284452636</div></a>
+<a class="ci" href="https://www.tiktok.com/@cncdesignes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.2a2.9 2.9 0 1 1-2-2.8V9.1a6.1 6.1 0 1 0 5.2 6V8.6a7.4 7.4 0 0 0 4.3 1.4V6.8a4.3 4.3 0 0 1-4.3-4.8z"/></svg><div><small>TikTok</small>@cncdesignes</div></a>
+</div>
+</div></section>
+<section class="sec" id="custom"><div class="ey">Custom Order</div><h2>Custom Design Order</h2><div class="ln"></div>
+<div class="fm" style="max-width:640px"><input id="cx1" placeholder="Apka Naam"><select id="cx2"><option>2D Design</option><option>3D Design</option></select><select id="cx3"><option>DXF</option><option>EPS</option><option>STL</option></select><input id="cx4" placeholder="Size (maslan 600 x 900 mm)"><input id="cx6" placeholder="Reference image ka link (agar ho)"><textarea id="cx5" rows="4" placeholder="Design ki tafseel likhain"></textarea><button class="btn" onclick="sc()">WhatsApp par Order Bhejain</button><div class="sm" style="color:var(--mu);font-size:13px">Reference image WhatsApp par alag bhi bhej sakte hain. Price design dekh kar bataya jata hai.</div></div></section>
+
+<footer><div class="fl"><a onclick="pol('p')">Privacy Policy</a><a onclick="pol('t')">Terms</a><a onclick="pol('r')">Refund Policy</a><a href="download.html">Mera Download</a></div>© 2026 CNC Design — All rights reserved</footer>
+
+<div class="m" id="pm"><div class="mb"><span class="x" onclick="cl('pm')">✕</span>
+<img id="pi" alt=""><h3 id="pn" style="color:var(--g2);word-break:break-all;font-family:Consolas,monospace;font-size:17px"></h3>
+<div style="font-size:20px;font-weight:700" id="pp"></div>
+<p>Kya ap ye file buy karna chahte hain?</p>
+<div class="row" id="yn"><button class="btn" onclick="yes()">Yes</button><button class="btn o" onclick="cl('pm')">No</button></div>
+<div id="pay2" style="display:none">
+<div class="row" style="margin:0"><div class="pb"><div class="ic jc">JC</div>JazzCash</div><div class="pb"><div class="ic ep">EP</div>EasyPaisa</div></div>
+<div class="sm">Is number par money transfer karain:</div>
+<div class="num">03284452636</div>
+<div class="sm" id="cp"></div>
+<div class="row"><a class="btn" style="background:#e4002b;border-color:#e4002b;color:#fff" id="jl" href="#">JazzCash Kholain</a><a class="btn ep2" id="el" href="#">EasyPaisa Kholain</a></div><div class="row"><button class="btn o" onclick="copy()">Number Copy</button></div>
+<div class="sm" style="color:#e6c872;font-weight:700">Payment karne ke baad neeche form bharein:</div>
+<div class="fm" style="border:0;padding:8px 0 0;gap:10px"><input id="on1" placeholder="Apka Naam"><input id="on2" placeholder="Phone Number (03xx...)" inputmode="tel"><select id="om"><option>JazzCash</option><option>EasyPaisa</option></select><input id="on3" placeholder="Transaction ID"><button class="btn" onclick="so()">Order Submit Karein</button></div>
+<div class="sm" id="or" style="color:#cfcabd;line-height:1.6"></div>
+<div class="sm">Payment check hone ke baad apko download milega. Chahein to screenshot WhatsApp par bhi bhej sakte hain.</div>
+<div class="row"><a class="btn o" id="wl" target="_blank" rel="noopener" href="#">WhatsApp par Screenshot</a></div>
+</div></div></div>
+<div class="m" id="cm"><div class="mb"><span class="x" onclick="cl('cm')">✕</span><h3 style="margin-top:0">🛒 Cart</h3><div id="cl"></div><div id="ct" style="font-size:20px;font-weight:700;margin:14px 0"></div><div class="row"><button class="btn" id="ck" onclick="co()">Checkout</button><button class="btn o" onclick="cc()">Clear</button></div></div></div>
+<div class="m" id="dm"><div class="mb dm"><span class="x" onclick="cl('dm')">✕</span><img id="di" alt=""><h3 id="dn" style="color:var(--g2);word-break:break-all"></h3><div id="dd"></div><div class="row"><button class="btn o" id="da">🛒 Add to Cart</button><button class="btn" id="db">Buy Now</button></div></div></div>
+<div class="m" id="plm"><div class="mb"><span class="x" onclick="cl('plm')">✕</span><h3 id="plt" style="margin-top:0"></h3><p id="plb" style="text-align:left;line-height:1.7;color:#cfcabd"></p></div></div>
+<div class="m zoom" id="zm" onclick="cl('zm')"><img id="zi" alt=""></div>
+
+<script>
+var N="03284452636",W="https://wa.me/92"+N.slice(1);
+document.getElementById('me').src="images/img1.png";document.getElementById('me2').src="images/img2.png";
+var D=[
+{n:"3d_khana_kaba",p:3500,s:"41.8 MB",i:"images/thumb/3d_khana_kaba.jpg",f:"images/full/3d_khana_kaba.jpg"},
+{n:"3d_lion",p:3300,s:"10.5 MB",i:"images/thumb/3d_lion.jpg",f:"images/full/3d_lion.jpg"},
+{n:"3d_tree",p:3200,s:"21.1 MB",i:"images/thumb/3d_tree.jpg",f:"images/full/3d_tree.jpg"},
+{n:"3d_tool_clock",p:3000,s:"34.2 MB",i:"images/thumb/3d_tool_clock.jpg",f:"images/full/3d_tool_clock.jpg"},
+{n:"3d_jungle_lion",p:2500,s:"28.1 MB",i:"images/thumb/3d_jungle_lion.jpg",f:"images/full/3d_jungle_lion.jpg"},
+{n:"3d_girl",p:2300,s:"55.7 MB",i:"images/thumb/3d_girl.jpg",f:"images/full/3d_girl.jpg"},
+{n:"3d_mirror",p:2200,s:"23.1 MB",i:"images/thumb/3d_mirror.jpg",f:"images/full/3d_mirror.jpg"},
+{n:"flower_3d",p:2200,s:"8.4 MB",i:"images/thumb/flower_3d.jpg",f:"images/full/flower_3d.jpg"},
+{n:"3d_moor",p:2000,s:"9.2 MB",i:"images/thumb/3d_moor.jpg",f:"images/full/3d_moor.jpg"},
+{n:"face_mask",p:1900,s:"5.7 MB",i:"images/thumb/face_mask.jpg",f:"images/full/face_mask.jpg"},
+{n:"3d_wall_flower",p:1800,s:"3.0 MB",i:"images/thumb/3d_wall_flower.jpg",f:"images/full/3d_wall_flower.jpg"},
+{n:"3d_fish",p:1800,s:"6.8 MB",i:"images/thumb/3d_fish.jpg",f:"images/full/3d_fish.jpg"},
+{n:"A_lot_of_wall_leaf",p:2300,s:"58.0 MB",i:"images/thumb/A_lot_of_wall_leaf.jpg",f:"images/full/A_lot_of_wall_leaf.jpg"},
+{n:"picock_moor",p:2400,s:"23.9 MB",i:"images/thumb/picock_moor.jpg",f:"images/full/picock_moor.jpg"},
+{n:"single_leaf",p:1800,s:"13.3 MB",i:"images/thumb/single_leaf.jpg",f:"images/full/single_leaf.jpg"},
+{n:"chanyoti_mirror",p:2000,s:"26.4 MB",i:"images/thumb/chanyoti_mirror.jpg",f:"images/full/chanyoti_mirror.jpg"},
+{n:"chanyoti_plate",p:1800,s:"5.7 MB",i:"images/thumb/chanyoti_plate.jpg",f:"images/full/chanyoti_plate.jpg"},
+{n:"hourse",p:2000,s:"19.1 MB",i:"images/thumb/hourse.jpg",f:"images/full/hourse.jpg"},
+{n:"satton",p:2000,s:"8.2 MB",i:"images/thumb/satton.jpg",f:"images/full/satton.jpg"}];
+function bg(id,n,k){var e=document.getElementById(id);for(var j=0;j<n;j++){var d=document.createElement('div');d.style.backgroundImage='url('+D[(j+k)%D.length].i+')';e.appendChild(d)}}
+bg('pbg',5,0);bg('cbg',4,3);
+var cur=null,GR=document.getElementById('grid'),E=function(i){return document.getElementById(i)};
+var CAT={'3d_khana_kaba':'Islamic','3d_lion':'Animals','3d_jungle_lion':'Animals','3d_fish':'Animals','3d_moor':'Animals','3d_girl':'Portraits','face_mask':'Portraits','flower_3d':'Floral','3d_wall_flower':'Floral','3d_tree':'Decor','3d_mirror':'Decor','3d_tool_clock':'Decor','A_lot_of_wall_leaf':'Floral','picock_moor':'Animals','single_leaf':'Floral','chanyoti_mirror':'Decor','chanyoti_plate':'Decor','hourse':'Animals','satton':'Decor'};
+D.forEach(function(d){d.c=CAT[d.n]||'Other'});
+var CT=[];try{CT=JSON.parse(localStorage.getItem('cnc_cart'))||[]}catch(e){}
+function byN(n){return D.filter(function(d){return d.n==n})[0]}
+function sc2(){try{localStorage.setItem('cnc_cart',JSON.stringify(CT))}catch(e){}E('cn').textContent=CT.length}
+function opay(t,p,img,nm,x){cur={n:nm,p:p,x:x,items:x?CT.slice():[nm]};E('or').textContent='';E('pi').src=img;E('pn').textContent=t;E('pp').textContent='Price: Rs. '+p;E('yn').style.display='flex';E('pay2').style.display='none';cl('cm');cl('dm');op('pm')}
+function add(n){if(CT.indexOf(n)<0)CT.push(n);sc2();oc()}
+function rd(){var q=E('q').value.toLowerCase(),c=E('cf').value,s=E('sf').value;
+ var L=D.filter(function(d){return(!c||d.c==c)&&(!q||(d.n+' '+d.c).toLowerCase().indexOf(q)>-1)});
+ if(s)L.sort(function(a,b){return s=='a'?a.p-b.p:b.p-a.p});
+ GR.innerHTML='';E('em').style.display=L.length?'none':'block';
+ L.forEach(function(d,k){var c2=document.createElement('div');c2.className='card';c2.style.animationDelay=(k*.06)+'s';
+  c2.innerHTML='<div class="iw"><img loading="lazy" src="'+d.i+'" alt="'+d.n+'"></div><div class="in"><div class="nm">'+d.n+'.stl</div><div class="mt">'+d.c+' · STL · '+d.s+'</div><div class="r2"><button class="btn o ad">🛒 Add</button><button class="btn by">Rs. '+d.p+'</button></div></div>';
+  c2.querySelector('img').onclick=function(){dt(d)};c2.querySelector('.ad').onclick=function(){add(d.n)};c2.querySelector('.by').onclick=function(){opay(d.n+'.stl',d.p,d.i,d.n,0)};GR.appendChild(c2)})}
+function dt(d){E('di').src=d.f||d.i;E('dn').textContent=d.n+'.stl';E('dd').innerHTML='<p><b>Category:</b> '+d.c+'</p><p><b>Format:</b> STL (3D relief) · <b>Size:</b> '+d.s+'</p><p><b>Khulti hai:</b> Aspire, VCarve, ArtCAM aur dusre STL support karne wale CNC software mein.</p><p style="font-size:22px;color:var(--g)"><b>Rs. '+d.p+'</b></p>';
+ E('da').onclick=function(){add(d.n)};E('db').onclick=function(){opay(d.n+'.stl',d.p,d.i,d.n,0)};op('dm')}
+function oc(){var t=0,h2='';CT.forEach(function(n){var d=byN(n);if(!d)return;t+=d.p;h2+='<div class="ci2"><img src="'+d.i+'" alt=""><div>'+n+'.stl<br>Rs. '+d.p+'</div><span onclick="rm(\''+n+'\')">✕</span></div>'});
+ E('cl').innerHTML=h2||'<p style="color:var(--mu)">Cart khali hai.</p>';E('ct').textContent=CT.length?'Total: Rs. '+t:'';E('ck').style.display=CT.length?'':'none';op('cm')}
+function rm(n){CT=CT.filter(function(x){return x!=n});sc2();oc()}
+function cc(){CT=[];sc2();oc()}
+function co(){var t=0,nm=[];CT.forEach(function(n){var d=byN(n);if(d){t+=d.p;nm.push(n+'.stl')}});if(!nm.length)return;opay(nm.length+' designs',t,byN(CT[0]).i,nm.join(', '),1)}
+var P={p:['Privacy Policy','Hum apka naam, number aur payment ki tafseel sirf order poora karne aur file bhejne ke liye istemal karte hain. Ye kisi teesre ko nahi bechi jati.'],t:['Terms','Files sirf kharidne wale ke apne kaam ke liye hain. Inhe dobara bechna ya dusron mein share karna mana hai. File payment check hone ke baad di jati hai. Prices badal sakti hain.'],r:['Refund Policy','Digital file bhej dene ke baad paisay wapas nahi hote. Agar file kharab ya ghalat ho to 7 din ke andar WhatsApp par bataein, hum file theek kar ke ya badal kar denge.']};
+function pol(k){E('plt').textContent=P[k][0];E('plb').textContent=P[k][1];op('plm')}
+function sc(){var t='Custom Design Order\nNaam: '+E('cx1').value+'\nType: '+E('cx2').value+'\nFormat: '+E('cx3').value+'\nSize: '+E('cx4').value+'\nReference: '+E('cx6').value+'\nTafseel: '+E('cx5').value;window.open(W+'?text='+encodeURIComponent(t),'_blank')}
+async function so(){var r=E('or');
+ if(!window.SB||SB.key.indexOf('PASTE')==0){r.textContent='Setup abhi mukammal nahi hua. WhatsApp par rabta karein.';return}
+ r.textContent='Bhej raha hon...';
+ try{var q=await fetch(SB.url+'/rest/v1/rpc/create_order',{method:'POST',headers:{apikey:SB.key,Authorization:'Bearer '+SB.key,'Content-Type':'application/json'},body:JSON.stringify({p_name:E('on1').value,p_phone:E('on2').value,p_items:cur.items,p_txn:E('on3').value,p_method:E('om').value})});
+  var j=await q.json();if(!q.ok){r.textContent='❌ '+(j.message||'Order nahi ho saka');return}
+  r.innerHTML='✅ Order mil gaya! Apka code: <b style="color:#e08a3c;font-size:18px">'+j+'</b><br>Isay save kar lein. Payment check hone ke baad <a href="download.html?code='+j+'" style="color:#e6c872">Mera Download</a> page par ye code dalein.';
+  if(cur.x){CT=[];sc2()}}catch(e){r.textContent='Network ka masla, dobara koshish karein'}}
+sc2();rd();
+function op(i){document.getElementById(i).classList.add('on')}
+function cl(i){document.getElementById(i).classList.remove('on')}
+function yes(){
+ document.getElementById('yn').style.display='none';document.getElementById('pay2').style.display='block';
+ var t='Assalam o Alaikum, ma ye file buy karna chahta hon: '+cur.n+(cur.x?'':'.stl')+' (Rs. '+cur.p+'). Payment kar di hai (JazzCash/EasyPaisa).';
+ document.getElementById('wl').href=W+'?text='+encodeURIComponent(t);
+ var pf=function(p,u){return 'intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package='+p+';S.browser_fallback_url='+encodeURIComponent(u)+';end'};
+ document.getElementById('jl').href=pf('com.techlogix.mobilinkcustomer','https://play.google.com/store/apps/details?id=com.techlogix.mobilinkcustomer');
+ document.getElementById('el').href=pf('pk.com.telenor.phoenix','https://play.google.com/store/apps/details?id=pk.com.telenor.phoenix');
+ copy();}
+function copy(){var m=document.getElementById('cp');
+ try{navigator.clipboard.writeText(N).then(function(){m.textContent='Number copy ho gaya, JazzCash me paste karain'},function(){m.textContent='Number manually copy karain'})}catch(e){m.textContent='Number manually copy karain'}}
+document.getElementById('wa').href=W;
+document.getElementById('cw').href=W+'?text='+encodeURIComponent('Assalam o Alaikum, mujhe online 2D/3D course (30% off) ke bare me janna hai.');
+function sendMsg(){var t='Naam: '+document.getElementById('fn').value+'\nTopic: '+document.getElementById('fs').value+'\n'+document.getElementById('ft').value;window.open(W+'?text='+encodeURIComponent(t),'_blank')}
+
+var C=[["2D Jalies","2d jali design cnc","images/img3.jpg","Laser &amp; CNC cut jali patterns"],["3D Relief","3d relief wood carving design cnc","images/img4.jpg","Frames, murals &amp; relief carving"],["Door Panels","wooden door panel carving design cnc","images/img5.jpg","Carved main &amp; room doors"],["Beds","2d and 3d bed design wood carving cnc","images/img6.jpg","2D aur 3D carved bed designs"],["Sofas","sofa wood carving design cnc","images/img7.jpg","Luxury carved sofa sets"],["Wall Panels","3d wall panel design cnc","images/img8.jpg","Modern 3D wall panels"]];
+var cg=document.getElementById('cg');
+C.forEach(function(c,k){var a=document.createElement('a');a.className='cc';a.target='_blank';a.rel='noopener';a.href='https://www.pinterest.com/search/pins/?q='+encodeURIComponent(c[1]);a.style.transitionDelay=(k*.12)+'s';
+ a.innerHTML='<div class="im"><img src="'+c[2]+'" alt="'+c[0]+'"></div><div class="tx"><b>'+c[0]+'</b><small>'+c[3]+'</small><i>Pinterest par dekhain →</i></div>';cg.appendChild(a)});
+document.getElementById('wx').src="images/img9.jpg";
+try{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.cc,.rv').forEach(function(x){io.observe(x)})}catch(e){document.querySelectorAll('.cc,.rv').forEach(function(x){x.classList.add('v')})}
+</script><script>
+(function(){var s=document.getElementById('spl'),w='Welcome',t=document.getElementById('swl');
+try{document.getElementById('slg').innerHTML=document.querySelector('.logo svg').outerHTML}catch(e){}
+for(var i=0;i<w.length;i++){var p=document.createElement('span');p.textContent=w[i];p.style.animationDelay=(1.0+i*.12)+'s,0s';t.appendChild(p)}
+document.documentElement.style.overflow='hidden';
+setTimeout(function(){s.classList.add('out');document.documentElement.style.overflow='';setTimeout(function(){s.style.display='none'},800)},3300)})();
+</script>
+<div id="ipm" style="display:none;position:fixed;inset:0;z-index:9000;background:#000c;align-items:center;justify-content:center;padding:18px">
+<div style="background:#17181b;border:1px solid #c9a24a;max-width:380px;width:100%;padding:26px;text-align:center;border-radius:8px;box-shadow:0 20px 60px #000;animation:up .4s">
+<img src="icon-192.png" alt="" style="width:84px;height:84px;border-radius:18px;margin-bottom:10px">
+<h3 style="margin:0 0 8px;color:#e6c872;font-size:22px">CNC Design App</h3>
+<p id="ipt" style="color:#cfcabd;line-height:1.6;margin:0 0 18px;font-size:15px">Kya ap CNC Design app apne phone mein install karna chahte hain?</p>
+<div style="display:flex;flex-direction:column;gap:10px"><button class="btn" id="ipy" onclick="inst()">📲 Install</button><button class="btn o" id="ipn" onclick="hideM()">Nahi, Website Kholein</button></div></div></div>
+<script>
+var dp=null,ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+function sa(){return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true}
+function g(i){return document.getElementById(i)}
+function showM(){if(sa())return;try{if(sessionStorage.getItem('ipx'))return}catch(e){}g('ipm').style.display='flex'}
+function hideM(){g('ipm').style.display='none';try{sessionStorage.setItem('ipx','1')}catch(e){}}
+function inst(){
+ if(dp){dp.prompt();dp.userChoice.then(function(){dp=null;hideM();g('ib2').style.display='none'});return}
+ g('ipm').style.display='flex';g('ipy').style.display='none';g('ipn').textContent='Theek hai';
+ g('ipt').innerHTML=ios?'Safari mein neeche <b>Share ⬆</b> dabayein, phir <b>Add to Home Screen</b> chunein.':'Chrome ke menu (teen dots) mein <b>Install app</b> ya <b>Add to Home screen</b> chunein.';
+}
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;g('ib2').style.display='inline-block'});
+window.addEventListener('appinstalled',function(){hideM();g('ib2').style.display='none'});
+if(!sa()){g('ib2').style.display='inline-block';setTimeout(showM,Math.max(0,3700-performance.now()))}
+</script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script></body></html>
